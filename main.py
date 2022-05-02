@@ -1,6 +1,10 @@
+import os
 import random
 from keepalive import keepalive
 import discord
+my_secret = os.environ['TOKEN']
+
+
 
 journal_link = 'https://docs.google.com/document/d/174f4fFTwMTyGx-PiXQkqHwnFD_XFHyGkJMGAisLy_MI/edit'
 takeshi_journal_link = 'https://docs.google.com/document/d/1kOTNzkU0G5joaz-TQK8V8623Qk3pQ9zTdNicgMKQNGs/edit'
@@ -26,17 +30,15 @@ async def on_message(message):
     if message.author == client.user:
         return
     if message.content.startswith('!Kodama hello'):
-        await message.channel.send('Hello {}!'.format(message.author.nick))
+        await message.channel.send('Hello {}!'.format(message.author.name))
     if message.content.startswith('!Kodama journal'):
         await message.channel.send(f'Hiya the link to the journal is here {journal_link}')
     if message.content.startswith('!Kodama Takeshi journal'):
         await message.channel.send(f"Hiya here is the journal of Takeshi {takeshi_journal_link}")
     if message.content.startswith('!Kodama reference'):
         await message.channel.send(f"Hiya here is the reference sheet for Ryuutama {reference_link}")
-    if "meow" or "Meow" in message.content:
-        await message.channel.send("Meow!")
     if message.content.startswith("!Kodama fact"):
         await message.channel.send(facts[random.randint(0, len(facts)-1)])
 
 keepalive()
-client.run('TOKEN')
+client.run(my_secret)
