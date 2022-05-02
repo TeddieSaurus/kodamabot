@@ -1,5 +1,5 @@
 import random
-
+from keepalive import keepalive
 import discord
 
 journal_link = 'https://docs.google.com/document/d/174f4fFTwMTyGx-PiXQkqHwnFD_XFHyGkJMGAisLy_MI/edit'
@@ -23,7 +23,6 @@ async def on_ready():
 
 @client.event
 async def on_message(message):
-    print(message)
     if message.author == client.user:
         return
     if message.content.startswith('!Kodama hello'):
@@ -39,4 +38,5 @@ async def on_message(message):
     if message.content.startswith("!Kodama fact"):
         await message.channel.send(facts[random.randint(0, len(facts)-1)])
 
-client.run("OTcwNjI4MTE1MzU5NDk4MjQw.Ym-t4A.r9BPYyRDQ00UGF_i0tMdxhsw8cE")
+keepalive()
+client.run('TOKEN')
