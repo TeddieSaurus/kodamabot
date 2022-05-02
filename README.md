@@ -20,3 +20,6 @@ Has a few commands, more coming later.
 
 !Kodama add fact
 -Bot will add fact to facts.txt depending on what was writtena after this
+
+Invite link:
+https://discord.com/api/oauth2/authorize?client_id=970628115359498240&permissions=431644736576&scope=bot
